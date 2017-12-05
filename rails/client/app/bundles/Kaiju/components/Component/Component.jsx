@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import configureStore from './store/componentStore';
 import ElementContainer from './containers/ElementContainer';
+import SafeRender from './components/SafeRender/SafeRender';
 import distpatcher from './utilities/dispatcher';
 import initializeDrag from './utilities/drag';
 
@@ -29,7 +30,9 @@ class Component extends React.Component {
     return (
       <Provider store={this.store}>
         <Base locale="en-US">
-          <ElementContainer id={this.props.id} />
+          <SafeRender>
+            <ElementContainer id={this.props.id} />
+          </SafeRender>
         </Base>
       </Provider>
     );
