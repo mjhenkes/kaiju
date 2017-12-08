@@ -13,9 +13,9 @@ cache:
     - node_modules
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker build -t mjhenkes/kaiju-rails:latest ./rails
-    docker build -t mjhenkes/kaiju-node:latest ./node
+    docker build -t mjhenkes/kaiju-rails:latest ./rails;
+    docker build -t mjhenkes/kaiju-node:latest ./node;
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker push mjhenkes/kaiju-rails:latest
-    docker push mjhenkes/kaiju-node:latest
+    docker push mjhenkes/kaiju-rails:latest;
+    docker push mjhenkes/kaiju-node:latest;
     fi
